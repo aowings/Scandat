@@ -1,0 +1,6 @@
+@Scandat_HostAddress = http://localhost:5089
+
+GET {{Scandat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
