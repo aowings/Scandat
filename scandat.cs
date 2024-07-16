@@ -36,16 +36,23 @@ namespace MSearchBroadcast
             // Set a timer to stop listening after a certain time
             var cancellationTokenSource = new CancellationTokenSource();
             var timer = new System.Timers.Timer(600000); // 10 minutes (600000 milliseconds)
-            timer.Elapsed += (sender, e) =>
-            {
+            timer.Elapsed += (sender, e) => {
                 Console.WriteLine("Stopping listening after 10 minutes.");
                 cancellationTokenSource.Cancel();
                 timer.Dispose();
             };
             timer.Start();
 
+            // Create a task to listen for user input
+            var inputTask = Task.Run(() => {
+                Console.WriteLine("Press any key to stop the program...");
+                Console.Read
+                ();
+                cancellationTokenSource.Cancel();
+            });
+
             // Listen for responses (await the task)
-            await ListenForResponses(cancellationTokenSource.Token); // Await the task
+            await Task.WhenAny(ListenForResponses(cancellationTokenSource.Token), inputTask); // Await the task
 
             Console.WriteLine("Program finished.");
         }
@@ -129,3 +136,4 @@ namespace MSearchBroadcast
             }
         }
     }
+}
