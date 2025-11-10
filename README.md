@@ -1,4 +1,4 @@
-MSearchBroadcast
+Scandat
 
 A lightweight C# console tool for broadcasting SSDP (Simple Service Discovery Protocol) M-SEARCH requests and listening for responses from UPnP devices on the local network.
 
@@ -114,4 +114,5 @@ Microsoft SSDP Documentation
 License:
 
 This project is licensed under the MIT License
+
 
