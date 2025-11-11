@@ -80,6 +80,7 @@ Network access to the local multicast group (239.255.255.250)
  Build & Run
 1. Clone the repository
 git clone https://github.com/aowings/Scandat
+
 cd Scandat
 
 2. Build the project
@@ -114,5 +115,6 @@ Microsoft SSDP Documentation
 License:
 
 This project is licensed under the MIT License
+
 
 
